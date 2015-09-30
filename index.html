@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>vi-basic</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>vi基礎</h2>
+				</section>
+
+				<section>
+					<h3>私がよく使うもののみ紹介します</h3>
+					<small>
+						きっと一番効率良い方法ではないです<br/>でも、これだけ知ってればなんとかなります
+					</small>
+				</section>
+
+				<section>
+					<h3>その前に</h3>
+					<small>viとvimの違いを知っていますか？</small>
+					<pre><code class="nohighlight" data-trim contenteditable>
+%ls -l /usr/bin/vi
+lrwxr-xr-x  1 root  wheel  3 11 20  2013 /usr/bin/vi@ -> vim
+					</code></pre>
+					<small>一部のコマンドはvimでしか使えないものがありますので注意してください。<br />たぶん、最近はvimしかないと思う。。。</small>
+				</section>
+
+				<section>
+					<h3>移動系のコマンド</h3>
+					<p><small>慣れるとカーソルキーでの移動より楽です</small></p>
+					<small>
+						<dl>
+							<dt>h</dt><dd>カーソルを左に移動</dd>
+							<dt>j</dt><dd>カーソルを下に移動</dd>
+							<dt>k</dt><dd>カーソルを上に移動</dd>
+							<dt>l</dt><dd>カーソルを右に移動</dd>
+							<dt>G</dt><dd>ファイルの末尾に移動</dd>
+							<dt>:1</dt><dd>ファイルの先頭に移動</dd>
+							<dt>0</dt><dd>行の先頭に移動</dd>
+							<dt>$</dt><dd>行の末尾に移動</dd>
+							<dt>x</dt><dd>1文字削除する</dd>
+						</dl>
+  				</small>
+					<pre><code>Tips:
+大抵のコマンド(:に続くコマンドなどを除く)はコマンドの前に数字を入力することで繰り返し実行できます
+例）10j カーソルを10行下に移動</code></pre>
+				</section>
+
+				<section>
+					<h3>コマンドモードと入力モード</h3>
+					<small>
+						<dl>
+							<dt>[ESC]</dt><dd>入力モードからコマンドモードに戻る</dd>
+							<dt>i(a)</dt><dd>カーソルの位置(次の文字)の場所で入力モードに移る</dd>
+							<dt>o(O)</dt><dd>カーソルの下(上)の行で入力モードに移る</dd>
+							<dt>I(A)</dt><dd>カーソル行の先頭(末尾)で入力モードに移る</dd>
+							<dt>cw</dt><dd>単語を置き換える形で入力モードに移る</dd>
+							<dt><i><u>n</u></i>s</dt><dd><i><u>n</u></i>文字置き換える形で入力モードに移る</dd>
+						</dl>
+  				</small>
+				</section>
+
+				<section>
+					<h3>終了のさせ方</h3>
+					<small>
+						<dl>
+							<dt>:q!</dt><dd>保存せずに終了</dd>
+							<dt>:wq</dt><dd>保存して終了</dd>
+							<dt>:w</dt><dd>保存だけ行う</dd>
+							<dt>:w <i><u>filename</u></i></dt><dd><i>filename</i>に保存<br />終了させ方じゃないけど、パーミッションが無くて保存終了出来ない時に使う</dd>
+						</dl>
+  				</small>
+				</section>
+
+				<section>
+					<h3>検索</h3>
+					<small>
+						<dl>
+							<dt>:/<i><u>word</u></i></dt><dd>現在のカーソルの後ろにある<i><u>word</u></i>を検索してジャンプ</dd>
+						  <dl>
+						  	<dt>n</dt><dd>カーソルより後ろにある<i><u>word</u></i>にジャンプ</dd>
+						  	<dt>N</dt><dd>カーソルより前にある<i><u>word</u></i>にジャンプ</dd>
+						  </dl>
+						</dl>
+  				</small>
+				</section>
+
+				<section>
+					<h3>置換</h3>
+					<small>
+						<dl>
+							<dt>:%s/<i><u>word</u></i>/<i><u>drow</u></i>/g</dt><dd>ファイル全体に対して<i><u>word</u></i>を<i><u>drow</u></i>に置換する</dd>
+						</dl>
+  				</small>
+					<pre><code>Tips:
+%はファイル全体を表します。ここを<先頭行>,<終了行>とすることもできます
+gは行内で繰り返し置換を実行します。gを省くと行中で1回置換すると次の行に移ります
+例）:10,20s/word/drow/ 10行目から20行目までの行の始めに現れたwordをdrowに置換する</code></pre>
+					<pre><code>Tips:(vimのみ)
+<先頭行>,<終了行>を[SHIFT]+v,[ENTER]で選択することも可能です</code></pre>
+				</section>
+
+				<section>
+					<h3>コピーペースト</h3>
+					<small>
+						<dl>
+							<dt>yy</dt><dd>カーソル行をコピー</dd>
+							<dt>dd</dt><dd>カーソル行をカット</dd>
+						  <dl>
+						  	<dt>p</dt><dd>カーソル行の下にペースト</dd>
+						  	<dt>P</dt><dd>カーソル行の上にペースト</dd>
+						  </dl>
+						</dl>
+  				</small>
+					<pre><code>Tips:(vimのみ)
+コピー、カットの行を[SHIFT]+v,[ENTER]で選択することも可能です</code></pre>
+				</section>
+
+				<section>
+					<h3>その他のよく使うコマンド</h3>
+					<small>
+						<dl>
+							<dt>x</dt><dd>1文字削除</dd>
+							<dt>D</dt><dd>カーソル以降の行末までを削除</dd>
+							<dt>DG</dt><dd>カーソル行からファイルの末尾を削除</dd>
+							<dt>J</dt><dd>カーソルの下の行を結合</dd>
+							<dt>u</dt><dd>直前の操作をやり直し</dd>
+							<dt>.</dt><dd>直前の操作を繰り返し実行</dd>
+							<dt>:n</dt><dd>(複数ファイルオープン時)次のファイルへ移動</dd>
+							<dt>:wn</dt><dd>(複数ファイルオープン時)保存してから次のファイルへ移動</dd>
+							<dt>:N</dt><dd>(複数ファイルオープン時)前のファイルへ移動</dd>
+						</dl>
+  				</small>
+				</section>
+
+				<section>
+					<h2>Let's edit.</h2>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
