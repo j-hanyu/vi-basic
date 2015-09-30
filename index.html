@@ -74,7 +74,6 @@ lrwxr-xr-x  1 root  wheel  3 11 20  2013 /usr/bin/vi@ -> vim
 							<dt>:1</dt><dd>ファイルの先頭に移動</dd>
 							<dt>0</dt><dd>行の先頭に移動</dd>
 							<dt>$</dt><dd>行の末尾に移動</dd>
-							<dt>x</dt><dd>1文字削除する</dd>
 						</dl>
   				</small>
 					<pre><code>Tips:
@@ -104,6 +103,23 @@ lrwxr-xr-x  1 root  wheel  3 11 20  2013 /usr/bin/vi@ -> vim
 							<dt>:wq</dt><dd>保存して終了</dd>
 							<dt>:w</dt><dd>保存だけ行う</dd>
 							<dt>:w <i><u>filename</u></i></dt><dd><i>filename</i>に保存<br />終了させ方じゃないけど、パーミッションが無くて保存終了出来ない時に使う</dd>
+						</dl>
+  				</small>
+				</section>
+
+				<section>
+					<h3>その他のよく使うコマンド</h3>
+					<small>
+						<dl>
+							<dt>x</dt><dd>1文字削除</dd>
+							<dt>D</dt><dd>カーソル以降の行末までを削除</dd>
+							<dt>DG</dt><dd>カーソル行からファイルの末尾を削除</dd>
+							<dt>J</dt><dd>カーソルの下の行を結合</dd>
+							<dt>u</dt><dd>直前の操作をやり直し</dd>
+							<dt>.</dt><dd>直前の操作を繰り返し実行</dd>
+							<dt>:n</dt><dd>(複数ファイルオープン時)次のファイルへ移動</dd>
+							<dt>:wn</dt><dd>(複数ファイルオープン時)保存してから次のファイルへ移動</dd>
+							<dt>:N</dt><dd>(複数ファイルオープン時)前のファイルへ移動</dd>
 						</dl>
   				</small>
 				</section>
@@ -149,24 +165,7 @@ gは行内で繰り返し置換を実行します。gを省くと行中で1回�
 						</dl>
   				</small>
 					<pre><code>Tips:(vimのみ)
-コピー、カットの行を[SHIFT]+v,[ENTER]で選択することも可能です</code></pre>
-				</section>
-
-				<section>
-					<h3>その他のよく使うコマンド</h3>
-					<small>
-						<dl>
-							<dt>x</dt><dd>1文字削除</dd>
-							<dt>D</dt><dd>カーソル以降の行末までを削除</dd>
-							<dt>DG</dt><dd>カーソル行からファイルの末尾を削除</dd>
-							<dt>J</dt><dd>カーソルの下の行を結合</dd>
-							<dt>u</dt><dd>直前の操作をやり直し</dd>
-							<dt>.</dt><dd>直前の操作を繰り返し実行</dd>
-							<dt>:n</dt><dd>(複数ファイルオープン時)次のファイルへ移動</dd>
-							<dt>:wn</dt><dd>(複数ファイルオープン時)保存してから次のファイルへ移動</dd>
-							<dt>:N</dt><dd>(複数ファイルオープン時)前のファイルへ移動</dd>
-						</dl>
-  				</small>
+コピー、カットの行を[SHIFT]+v,y(d)で選択することも可能です</code></pre>
 				</section>
 
 				<section>
